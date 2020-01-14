@@ -10,4 +10,6 @@ from ann_criterion import optimality_criterion
 
 
 if __name__ == "__main__":
-    X = pso()
+    X = particle_swarm_optimisation(optimality_criterion, -10, 10)
+    y = optimality_criterion(X)
+    print(y)

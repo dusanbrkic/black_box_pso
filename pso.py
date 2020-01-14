@@ -12,7 +12,7 @@ class Paricle():
 
 
 
-def particle_swarm_optimisation(funkcija, lowerb, upperb, maxiter=100, npart = 50, dim=60):
+def particle_swarm_optimisation(funkcija, lowerb, upperb, maxiter=20, npart = 50, dim=60):
 
     w = 1
     dmp = 0.99
@@ -36,7 +36,7 @@ def particle_swarm_optimisation(funkcija, lowerb, upperb, maxiter=100, npart = 5
         for j in range(len(particles)):
             particles[j].vektor = w*particles[j].vektor + c1*np.random.uniform(size=dim)*(particles[j].najbolji_X - particles[j].pozicija)+c2*np.random.uniform(size=dim)*(globalno_najbolji_X-particles[j].pozicija)
 
-            particles[j].pozicija = particles[j] + particles[j].vektor
+            particles[j].pozicija = particles[j].pozicija + particles[j].vektor
 
             particles[j].y = funkcija(particles[j].pozicija)
 
@@ -47,4 +47,4 @@ def particle_swarm_optimisation(funkcija, lowerb, upperb, maxiter=100, npart = 5
                     globalno_najbolji_X = particles[j].pozicija
                     globalno_najbolji_y = particles[j].y
             w = w*dmp
-    return
+    return globalno_najbolji_X
