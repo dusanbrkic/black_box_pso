@@ -16,13 +16,13 @@ def particle_swarm_optimisation(funkcija, lowerb, upperb, maxiter=20, npart = 50
 
     w = 1
     dmp = 0.99
-    c1 = 2
-    c2 = 2
+    c1 = 2.5
+    c2 = 0.5
     #Inicijalizacija
     particles = []
     globalno_najbolji_X = "Neka najbolji pobedi"
     globalno_najbolji_y = np.Inf
-    for k in range(dim):
+    for k in range(npart):
         p = Paricle(lowerb, upperb, dim)
         p.y = funkcija(p.pozicija)
         particles.append(p)
@@ -47,4 +47,6 @@ def particle_swarm_optimisation(funkcija, lowerb, upperb, maxiter=20, npart = 50
                     globalno_najbolji_X = particles[j].pozicija
                     globalno_najbolji_y = particles[j].y
             w = w*dmp
+            c1 = c1-2/maxiter
+            c2 = c2+2/maxiter
     return globalno_najbolji_X
