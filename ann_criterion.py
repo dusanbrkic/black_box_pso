@@ -295,4 +295,4 @@ def optimality_criterion(w):
 
 if __name__ == "__main__":
     w = list(np.random.uniform(-10, 10, 60))
-    optimality_criterion(w)
+    print(optimality_criterion(w))
