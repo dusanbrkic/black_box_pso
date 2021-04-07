@@ -3,7 +3,12 @@ import numpy as np
 
 class Particle:
     def __init__(self, lb, ub, dim):
-        self.pozicija = np.random.uniform(low=lb, high=ub, size=dim)
+        self.pozicija = np.random.rand(5)
+        self.pozicija[0] = np.random.uniform(78, 102)
+        self.pozicija[1] = np.random.uniform(33, 45)
+        self.pozicija[2] = np.random.uniform(27, 45)
+        self.pozicija[3] = np.random.uniform(27, 45)
+        self.pozicija[4] = np.random.uniform(27, 45)
         self.brzina = np.full(dim, 0, dtype=np.dtype("Float64"))
         self.y = np.Inf
         self.najbolji_X = self.pozicija
