@@ -54,8 +54,8 @@ def particle_swarm_optimisation(funkcija, lowerb, upperb, maxiter=20, npart=50, 
                         return globalno_najbolji_X
                     globalno_najbolji_y = particles[j].y
             w = w * dmp
-            c1 = c1 - 2 / ((maxiter*(maxiter-i))*100)
-            c2 = c2 + 2 / ((maxiter*(maxiter-i))*100)
+            c1 = c1 - 2 / (maxiter*(maxiter-i))
+            c2 = c2 + 2 / (maxiter*(maxiter-i))
         if printData:
             print(str(i) + ". Globalno " + str(globalno_najbolji_y))
     return globalno_najbolji_X
